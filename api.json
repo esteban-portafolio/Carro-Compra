@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "precio": 2500,
+        "titulo": "Recarga Bidon",
+        "imagen": "./img/1.png"
+    },
+    {
+        "id": 2,
+        "precio": 5500,
+        "titulo": "Bidon con Agua Purificada 20lts",
+        "imagen": "./img/1.png"
+    },
+    {
+        "id": 3,
+        "precio": 10000,
+        "titulo": "1 Bidón con agua purificada 20LT + Dispensador Clásico",
+        "imagen": "./img/4.png"
+    },
+    {
+        "id": 4,
+        "precio": 15000,
+        "titulo": "2 Bidones con agua purificada 20LT + Dispensador Clásico",
+        "imagen": "./img/5.png"
+    },
+    {
+        "id": 5,
+        "precio": 45000,
+        "titulo": "Dispensador Agua Fría/Caliente Sobremesa (Solo)",
+        "imagen": "./img/2.2.png"
+    },
+    {
+        "id": 6,
+        "precio": 50000,
+        "titulo": "Dispensador  Agua Fría/caliente Sobremesa + 2 bidón con agua purificada 20Lt",
+        "imagen": "./img/2-2.png"
+    },
+    {
+        "id": 7,
+        "precio": 85000,
+        "titulo": "Dispensador  Agua Fría/caliente Pedestal Compresor (Solo)",
+        "imagen": "./img/1.1.png"
+    },
+    {
+        "id": 8,
+        "precio": 95000,
+        "titulo": "Dispensador  Agua Fría/caliente Pedestal Compresor + 2 bidón con agua purificada 20Lt",
+        "imagen": "./img/1-1.png"
+    }
+]

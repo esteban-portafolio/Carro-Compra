@@ -1,0 +1,83 @@
+body {
+  background-image: url(/img/ps2.jpg);
+}
+
+.navbar {
+  font-size: 25px;
+  background-color: #6ab9f1;
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 0;
+}
+
+.nav-item {
+  padding: 15px;
+}
+
+.nav-link {
+  font-weight: 900;
+  text-decoration: underline;
+  color: black;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  color: rgb(250, 1, 1);
+}
+
+h4 {
+  font-weight: 900;
+  font-size: 150%;
+  text-decoration: underline;
+}
+
+.titulo,
+.mision,
+.vision {
+  border-radius: 30px;
+}
+
+#empresa {
+  background: #f1f1f1;
+  padding: 50px 0 30px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+#btn-carrito {
+  padding: 10px;
+  margin-right: 50px;
+}
+#btn-carrito:hover {
+  cursor: pointer;
+  color: rgb(250, 1, 1);
+}
+
+#btn-items {
+  width: 60%;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 0;
+}
+
+
+#navbarNav {
+  margin-left: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding-top: 50px;
+  margin-bottom: 20px;
+}
+
+#titulo {
+  font-size: 20px;
+  font-weight: 900;
+}

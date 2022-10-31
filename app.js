@@ -6,9 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const fetchData = async () => {
     try {
-        const res = await fetch('api.json')
-        const data = await res.json()
-        //console.log(data)
+        // const res = await fetch('api.json')
+        // const data = await res.json()
+        const response = await fetch('https://fakestoreapi.com/products')
+        const data = await response.json()
+        console.log(data)
+
         llenarProd(data)
         detectarBtn(data)
     } catch (error) {
@@ -21,12 +24,12 @@ let llenarProd = (data) => {
     let tempProd = document.querySelector('#tempProductos').content
     let fragment = document.createDocumentFragment()
     //console.log(tempProd)
-    data.forEach(producto => {
-        //console.log(producto)
-        tempProd.querySelector('img').setAttribute('src', producto.imagen)
-        tempProd.querySelector('h5').textContent = producto.titulo
-        tempProd.querySelector('p span').textContent = producto.precio
-        tempProd.querySelector('button').dataset.id = producto.id
+    data.forEach(products => {
+        //console.log(products)
+        tempProd.querySelector('img').setAttribute('src', products.image)
+        tempProd.querySelector('h5').textContent = products.title
+        tempProd.querySelector('p span').textContent = products.price
+        tempProd.querySelector('button').dataset.id = products.id
 
 
         let clone = tempProd.cloneNode(true)
@@ -66,10 +69,10 @@ let pintarCarrito = () => {
 
     Object.values(carrito).forEach(producto => {
         //console.log(producto)
-        template.querySelector('img').src = producto.imagen
-        template.querySelectorAll('td')[0].textContent = producto.titulo
+        template.querySelector('img').src = producto.image
+        template.querySelectorAll('td')[0].textContent = producto.description
         template.querySelectorAll('td')[1].textContent = producto.cantidad
-        template.querySelector('span').textContent = producto.precio * producto.cantidad
+        template.querySelector('span').textContent = producto.price * producto.cantidad
 
         //botones
         template.querySelector('.btn-info').dataset.id = producto.id
@@ -108,8 +111,8 @@ let pintarFooter = () => {
     //sumar cantidad y totales
     let nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
     //console.log(nCantidad)
-    let nTotal = Object.values(carrito).reduce((acc, { cantidad, precio }) =>
-        acc + cantidad * precio, 0)
+    let nTotal = Object.values(carrito).reduce((acc, { cantidad, price }) =>
+        acc + cantidad * price, 0)
     //console.log(nTotal)
 
     template.querySelectorAll('td')[0].textContent = nCantidad
@@ -140,7 +143,7 @@ let pintarFooter = () => {
             title: 'Esta seguro de su compra?',
             html: 
             '<b> Cantidad de Items: '+nCantidad+'</b><br>' +
-            '<b>Total de tu compra: $'+nTotal+' CLP</b>',
+            '<b>Total de tu compra: $'+nTotal+' US</b>',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
@@ -194,6 +197,11 @@ let btnAction = () => {
     })
 
 }
+
+// let input = document.querySelector('#buscaInput')
+// input.addEventListener('keyup', e => {
+//     data.filter(titulo => titulo.title)
+// })
 
 
 

@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchData()
     cargarStorage()
     pintarCarrito()
+    filtrar()
 })
 
 const fetchData = async () => {
@@ -21,6 +22,7 @@ const fetchData = async () => {
 
 let contProd = document.querySelector('#contProductos')
 let llenarProd = (data) => {
+    filtrar()
     let tempProd = document.querySelector('#tempProductos').content
     let fragment = document.createDocumentFragment()
     //console.log(tempProd)
@@ -54,6 +56,21 @@ let detectarBtn = (data) => {
             carrito[producto.id] = { ...producto }
             pintarCarrito()
         })
+    })
+}
+
+let filtrar = () => {
+    let input = document.querySelector('#buscaInput')
+    input.addEventListener('keyup', e => {
+        let texto = input.value.toLowerCase()
+        //console.log(texto)
+        for (let d of data) {
+            let titulo = d.title.toLowerCase()
+            if (titulo.indexOf(texto) !== -1) {
+                llenarProd(data)
+            }
+        }
+        //llenarProd(newFilter)
     })
 }
 
@@ -141,9 +158,9 @@ let pintarFooter = () => {
         Swal.fire({
             icon: 'question',
             title: 'Esta seguro de su compra?',
-            html: 
-            '<b> Cantidad de Items: '+nCantidad+'</b><br>' +
-            '<b>Total de tu compra: $'+nTotal+' US</b>',
+            html:
+                '<b> Cantidad de Items: ' + nCantidad + '</b><br>' +
+                '<b>Total de tu compra: $' + nTotal + ' US</b>',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
@@ -197,11 +214,6 @@ let btnAction = () => {
     })
 
 }
-
-// let input = document.querySelector('#buscaInput')
-// input.addEventListener('keyup', e => {
-//     data.filter(titulo => titulo.title)
-// })
 
 
 

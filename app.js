@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchData()
     cargarStorage()
     pintarCarrito()
-    filtrar()
 })
 
 const fetchData = async () => {
@@ -11,23 +10,41 @@ const fetchData = async () => {
         // const data = await res.json()
         const response = await fetch('https://fakestoreapi.com/products')
         const data = await response.json()
-        console.log(data)
+        //console.log(data)
 
         llenarProd(data)
         detectarBtn(data)
+        filtrar(data)
+
     } catch (error) {
         console.log(error)
     }
 }
 
+let search 
+
+let filtrar = (data) => {
+    let input = document.querySelector('#buscaInput')
+    input.addEventListener('keyup', e => {
+        let texto = input.value.toLowerCase()
+        console.log(texto)
+        if (texto) {
+            search = data.filter(t => t.title.toLowerCase().includes(texto)) 
+        }
+        console.log(search)
+        llenarProd(search)
+    })
+}
+
 let contProd = document.querySelector('#contProductos')
-let llenarProd = (data) => {
-    filtrar()
+let llenarProd = (search) => {
+
     let tempProd = document.querySelector('#tempProductos').content
     let fragment = document.createDocumentFragment()
     //console.log(tempProd)
-    data.forEach(products => {
-        //console.log(products)
+    contProd.innerHTML = ''
+    search.forEach(products => {
+         //console.log(products)
         tempProd.querySelector('img').setAttribute('src', products.image)
         tempProd.querySelector('h5').textContent = products.title
         tempProd.querySelector('p span').textContent = products.price
@@ -59,20 +76,6 @@ let detectarBtn = (data) => {
     })
 }
 
-let filtrar = () => {
-    let input = document.querySelector('#buscaInput')
-    input.addEventListener('keyup', e => {
-        let texto = input.value.toLowerCase()
-        //console.log(texto)
-        for (let d of data) {
-            let titulo = d.title.toLowerCase()
-            if (titulo.indexOf(texto) !== -1) {
-                llenarProd(data)
-            }
-        }
-        //llenarProd(newFilter)
-    })
-}
 
 ///PRODUCTOS///
 let items = document.getElementById('items')

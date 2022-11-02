@@ -21,7 +21,7 @@ const fetchData = async () => {
     }
 }
 
-let search 
+let search
 
 let filtrar = (data) => {
     let input = document.querySelector('#buscaInput')
@@ -29,7 +29,7 @@ let filtrar = (data) => {
         let texto = input.value.toLowerCase()
         console.log(texto)
         if (texto) {
-            search = data.filter(t => t.title.toLowerCase().includes(texto)) 
+            search = data.filter(t => t.title.toLowerCase().includes(texto))
         }
         console.log(search)
         llenarProd(search)
@@ -44,7 +44,7 @@ let llenarProd = (search) => {
     //console.log(tempProd)
     contProd.innerHTML = ''
     search.forEach(products => {
-         //console.log(products)
+        //console.log(products)
         tempProd.querySelector('img').setAttribute('src', products.image)
         tempProd.querySelector('h5').textContent = products.title
         tempProd.querySelector('p span').textContent = products.price
@@ -230,3 +230,27 @@ function cargarStorage() {
         carrito = JSON.parse(localStorage.getItem('carrito'))
     }
 }
+
+let modalContacto = document.querySelector('#btnContacto')
+let inputNom = document.querySelector('#inNom')
+let inputCorreo = document.querySelector('#inEmail')
+modalContacto.addEventListener('click', () => {
+    let nombre = inputNom.value
+    let correo = inputCorreo.value.toLowerCase()
+    Swal.fire({
+        icon: 'question',
+        title: nombre+' Esta seguro de enviar su contacto ?',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Enviar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Realizado',
+                'Tu mensaje de respuesta fue enviado a: '+correo,
+                'success'
+            )
+        }
+    })
+})

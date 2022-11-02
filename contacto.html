@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
-<body>
+<body id="contacto">
 
     <nav class="navbar navbar-expand-lg bg-light">
 
@@ -41,20 +41,23 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="left"></div>
-        <div class="right">
-            <h2>Contactanos</h2>
-            <input type="text" class="field" placeholder="Ingrese su Nombre">
-            <input type="email" class="field" placeholder="Ingrese su Correo">
-            <input type="text" class="field" placeholder="Ingrese su Telefono">
-            <textarea class="field" placeholder="Escribe tu Mensaje">
+    <div class="container contact">
+        <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+                <h2>Contactanos</h2>
+                <input type="text" class="field" placeholder="Ingrese su Nombre">
+                <input type="email" class="field" placeholder="Ingrese su Correo">
+                <input type="text" class="field" placeholder="Ingrese su Telefono">
+                <textarea class="field area" placeholder="Escribe tu Mensaje"></textarea>
+                <button class="boton">Enviar</button>
+            </div>
         </div>
-
     </div>
-    
+
 
     <script src="app.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>

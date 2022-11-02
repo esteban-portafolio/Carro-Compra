@@ -109,6 +109,128 @@ h4 {
   font-size: 20px;
 }
 
+/* CONTACTO */
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+}
+
+.container .contact{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 100px;
+}
+
+.contact::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/img/buy.jpg") no-repeat center;
+  background-size: cover;
+  z-index: -1;
+  filter: blur(50px);
+}
+
+.contact-box{
+  max-width: 850px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 19px 5px rgb(0, 0, 0, 0.19);
+}
+
+.left{
+  height: 100%;
+  background: url("/img/buy.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.right{
+  padding: 25px 50px;
+}
+
+h2{
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+h2::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50px;
+  border-radius: 2px;
+  background-color: #2ecc71;
+}
+
+.field{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  background-color: rgba(230, 230, 230, 0.6);
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+  transition: .3s;
+}
+
+.field:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.field:focus{
+  background-color: #fff;
+  border: 2px solid rgba(30, 85, 250, 0.47);
+}
+
+.area{
+  min-height: 150px;
+}
+
+.boton{
+  width: 80%;
+  padding: 0.5rem 1rem;
+  font-size: 1.8rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #03a546;
+  border-radius: 15px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #fff;
+  transition: .3s;
+}
+
+.boton:hover{
+  color: #fff;
+  background-color: #27ae60;
+}
+
+/* MEDIA QUERYS  */
+
 @media (max-width: 1280px) {
   .card {
     width: 100%;
@@ -214,5 +336,14 @@ h4 {
 
   .mix {
     margin-left: 10%;
+  }
+}
+
+@media screen and (max-width:880px) {
+  .contact-box{
+    grid-template-columns: 1fr;
+  }
+  .left{
+    height: 200px;
   }
 }

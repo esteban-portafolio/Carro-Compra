@@ -87,16 +87,22 @@ let pintarCarrito = () => {
     let template = document.querySelector('#tempCarrito').content
     let fragment = document.createDocumentFragment()
 
-    Object.values(carrito).forEach(producto => {
-        //console.log(producto)
-        template.querySelector('img').src = producto.image
-        template.querySelectorAll('td')[0].textContent = producto.description
-        template.querySelectorAll('td')[1].textContent = producto.cantidad
-        template.querySelector('span').textContent = producto.price * producto.cantidad
 
+    Object.values(carrito).forEach(producto => {
+
+        template.querySelector('img').src = producto.image
+        template.querySelector('img').setAttribute('class', "carImage")
+        template.querySelectorAll('td')[0].textContent = producto.description
+        template.querySelectorAll('td')[0].setAttribute('class', "carDesc")
+        template.querySelectorAll('td')[1].textContent = producto.cantidad
+        template.querySelectorAll('td')[1].setAttribute('id', "carmix")
+        template.querySelector('span').textContent = producto.price * producto.cantidad
+        template.querySelector('span').setAttribute('id', "carmix")
         //botones
         template.querySelector('.btn-info').dataset.id = producto.id
+        template.querySelector('.btn-info').setAttribute('id', "carmix")
         template.querySelector('.btn-danger').dataset.id = producto.id
+        template.querySelector('.btn-danger').setAttribute('id', "carmix")
 
         let clone = template.cloneNode(true)
         fragment.appendChild(clone)
@@ -239,7 +245,7 @@ modalContacto.addEventListener('click', () => {
     let correo = inputCorreo.value.toLowerCase()
     Swal.fire({
         icon: 'question',
-        title: nombre+' Esta seguro de enviar su contacto ?',
+        title: nombre + ' Esta seguro de enviar su contacto ?',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -248,7 +254,7 @@ modalContacto.addEventListener('click', () => {
         if (result.isConfirmed) {
             Swal.fire(
                 'Realizado',
-                'Tu mensaje de respuesta fue enviado a: '+correo,
+                'Tu mensaje de respuesta fue enviado a: ' + correo,
                 'success'
             )
         }

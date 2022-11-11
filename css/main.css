@@ -60,7 +60,7 @@ h4 {
   position: sticky;
   z-index: 1;
   align-items: center;
-  display: block;
+  /* display: block; */
 }
 
 #navbarNav {
